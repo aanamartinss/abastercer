@@ -1,0 +1,24 @@
+class Bomba:
+    def __init__(self, capacidade, preco):
+        self.capacidade = capacidade
+        self.preco = preco
+    def abastecerPorValor(self, valor):
+        litros = valor / self.preco
+        self.capacidade = self.capacidade - litros
+        return litros
+    def abastecerPorLitro(self, litros):
+        valor = litros * self.preco
+        self.capacidade = self.capacidade - litros
+        return valor
+    def alterarPreco(self, preco):
+        self.preco = preco
+    def encherBomba(self, litros):
+        self.capacidade = self.capacidade + litros
+
+bomba = Bomba(2000, 2.87)
+print ("Abasteceu %f litros" % bomba.abastecerPorValor(100))
+print ("Abasteceu %f reais" % bomba.abastecerPorLitro(100))
+bomba.alterarPreco(2.55)
+print ("Abasteceu %f reais" % bomba.abastecerPorLitro(100),bomba.encherBomba(100))
+print ("Capacidade: %f litros" % bomba.capacidade)
+
